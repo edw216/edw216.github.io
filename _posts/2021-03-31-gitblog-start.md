@@ -23,8 +23,8 @@ git을 처음 접하시는 분들은 git bash를 다운받아서 사용해야 �
  다른 테마를 원하시는 분들은 아래의 링크를 통해서 테마를 고르시면 될 것 같습니다.</br>
 ( 테마링크 : [http://jekyllthemes.org/](http://jekyllthemes.org/) )
 
-저는 minimal mistakes 홈페이지에서 테마파일을 다운로드 하였습니다.
-![blog1-1](/Users/dongwoo/edw216.github.io/assets/images/blog1/blog1-1.png)
+저는 minimal mistakes 홈페이지에서 테마파일을 다운로드 하였습니다. </br>
+![blog1-1](https://github.com/edw216/edw216.github.io/blob/master/assets/images/blog1/blog1-1.png)
 
 
 # 2. Github 원격 저장소 생성하기
