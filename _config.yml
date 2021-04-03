@@ -95,7 +95,7 @@ analytics:
 # Site Author
 author:
   name             : "LifeStudy"
-  avatar           : "https://github.com/edw216/edw216.github.io/blob/master/assets/images/profile/myprofile.jpeg?raw=true"
+  avatar           : "/assets/images/profile/myprofile.JPG"
   bio              : "Let's make study a daily life"
   location         : "South Korea"
   email            :
