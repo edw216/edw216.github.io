@@ -34,6 +34,7 @@ participant | completion | return
 ["marina","josipa","nikola","vinko","filipa"] | ["josipa","filipa","marina","nikola"] | "vinko"
 ["mislav","stanko","mislav","ana"] | ["stanko","ana","mislav"] | "mislav"
 
+
 #### 문제풀이
 ---
 이 문제는 중복제거라는 생각이 들어서 set을 사용하려는 생각이 들수도 있다. 
@@ -70,3 +71,4 @@ class Solution {
     }
 
 }
+```
