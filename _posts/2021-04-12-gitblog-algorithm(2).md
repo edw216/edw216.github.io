@@ -28,11 +28,12 @@ last_modified_at: 2021-04-12
 - 참가자 중에는 동명이인이 있을 수 있습니다.
 
 **입출력 예**<br>
-| participant | completion | return |
-| :--- | :--- | :--- |
-| ["leo","kiki","eden"] | ["eden","kiki"] | "leo" |
-| ["marina","josipa","nikola","vinko","filipa"] | ["josipa","filipa","marina","nikola"] | "vinko" |
-| ["mislav","stanko","mislav","ana"] | ["stanko","ana","mislav"] | "mislav" | 
+
+|participant                                  |completion                            |return   |
+|:--------------------------------------------|:-------------------------------------|:--------|
+|["leo","kiki","eden"]                        |["eden","kiki"]                       |"leo"    |
+|["marina","josipa","nikola","vinko","filipa"]|["josipa","filipa","marina","nikola"] |"vinko"  |
+|["mislav","stanko","mislav","ana"]           |["stanko","ana","mislav"]             |"mislav" | 
 
 
 #### 문제풀이
