@@ -28,11 +28,11 @@ last_modified_at: 2021-04-12
 - 참가자 중에는 동명이인이 있을 수 있습니다.
 
 **입출력 예**<br>
-participant | completion | return
-:--- | :--- | :---
-["leo","kiki","eden"] | ["eden","kiki"] | "leo"
-["marina","josipa","nikola","vinko","filipa"] | ["josipa","filipa","marina","nikola"] | "vinko"
-["mislav","stanko","mislav","ana"] | ["stanko","ana","mislav"] | "mislav"
+| participant | completion | return |
+| :--- | :--- | :--- |
+| ["leo","kiki","eden"] | ["eden","kiki"] | "leo" |
+| ["marina","josipa","nikola","vinko","filipa"] | ["josipa","filipa","marina","nikola"] | "vinko" |
+| ["mislav","stanko","mislav","ana"] | ["stanko","ana","mislav"] | "mislav" | 
 
 
 #### 문제풀이
@@ -44,7 +44,7 @@ Map은 중복된 값이 들어오면 기존에 있던 값은 제거가 되고 �
 키 값을 participant 참가자의 이름으로 두고 value 값을 초기값은 0 그이후에 중복된 값이 들어오면 +1 을 해서 문제를 풀어준다.<br>
 map의 getOrDefault(key,0) 메소드는 해당 map에 key값이 존재하지않으면 0으로 초기화를 해주고 key값이 존재하면 key에 해당하는 value값을 반환한다.
 
-```Java
+```java
 class Solution {
     public String solution(String[] participant, String[] completion) {
         String answer = "";

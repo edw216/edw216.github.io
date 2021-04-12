@@ -5,7 +5,7 @@ excerpt: 프로그래머스 레벨 1 문제풀이
 categories:
   - Algorithm
 tags:
-  - [GitBlog, Java, OOP, Algorithm, Programmers]
+  - [Java, Algorithm, Programmers]
 
 toc: true
 toc_sticky: true
@@ -24,10 +24,10 @@ last_modified_at: 2021-04-12
   
 
 **입출력 예**<br>
-numbers | result
-:---: | :---:
-[2,1,3,4,1] | [2,3,4,5,6,7]
-[5,0,2,7] | [2,5,7,9,12]
+| numbers | result |
+| :---: | :---: |
+| [2,1,3,4,1] | [2,3,4,5,6,7] |
+| [5,0,2,7] | [2,5,7,9,12] |
 
 
 #### 풀이
@@ -36,7 +36,7 @@ numbers에 중복된 숫자가 존재하고 result에는 중복된 숫자가 존
 오름차순으로 담아 return을 해야하므로 Set중에서도 HashSet, LinkedHashSet이 아닌 TreeSet을 사용한다. TreeSet은 이진 트리로 중복값을 저장하지 않는 것뿐만아니라 기본으로 정렬도 제공한다.<br>
 
 
-```Java
+```java
 class Solution {
     
 	public int[] solution(int[] numbers) {
@@ -63,6 +63,7 @@ class Solution {
     }
 	
 }
+
 ```
 
 
