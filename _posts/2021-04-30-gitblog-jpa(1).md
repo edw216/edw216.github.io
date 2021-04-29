@@ -174,6 +174,6 @@ jpa에서 제공하는 find()메소드를 통해서 적절한 SELECT SQL을 생�
 
 ### 2.1 상속
 
-![객체 모델과 테이블 모델](https://github.com/edw216/edw216.github.io/blob/master/assets/images/jpa/jpa_img1.png?raw=true)
+![객체 모델과 테이블 모델](https://github.com/edw216/edw216.github.io/blob/master/assets/images/jpa/jpa_img2.png?raw=true)
 <br>(그림 2)
 
