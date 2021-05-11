@@ -16,7 +16,7 @@ last_modified_at: 2021-04-30
 
   > JPA 공부를 어떻게 하지? 하다가 김영한님의 JPA책을 추천받았다. 책이 두껍긴 하다.. 이것을 다 읽는다면 분명 얻는게 엄청 많을 거 같다. 책 내용을 기반으로 정리 하려고 한다. 
 
-# JPA 소개 
+# 기존 JDBC API  
 기존 자바 애플리케이션은 JDBC API를 사용하여 SQL을 데이터베이스에 전달한다.
 (그림1)<br>
 
@@ -30,7 +30,7 @@ last_modified_at: 2021-04-30
 
 먼저 JPA를 소개하기 전에 어떤 문제들이 있었는지 알아보자.<br><br>
 
-# JPA 사용 이유 
+# JPA 사용 이유 (문제점)
 
 ## 1. SQL을 직접 다룰 때 발생하는 문제점
 
@@ -141,7 +141,7 @@ JPA를 사용하면 객체를 데이터베이스에 저장하고 관리 할 떄,
 다음 JPA의 CRUD API를 보자.<br><br>
 <u>JPA를 사용한 조회 기능</u>
 
-`String memberId = "hello";`
+`String memberId = "hello";`<br>
 `Member member = jpa.find(Member.class, memberId);`
 
 
@@ -155,13 +155,13 @@ jpa에서 제공하는 find()메소드를 통해서 적절한 SELECT SQL을 생�
 
 **수정 기능**
 
-`Member member = jpa.find(Member.class, memeberId)`
+`Member member = jpa.find(Member.class, memeberId)`<br>
 `member.setName("이름변경")`
 
 
 **연관된 객체 조회**
 
-`Member member = jpa.find(Member.class, memberId)`
+`Member member = jpa.find(Member.class, memberId)`<br>
 `Team team = member.getTeam()`
 
 
@@ -176,4 +176,55 @@ jpa에서 제공하는 find()메소드를 통해서 적절한 SELECT SQL을 생�
 
 ![객체 모델과 테이블 모델](https://github.com/edw216/edw216.github.io/blob/master/assets/images/jpa/jpa_img2.png?raw=true)
 <br>(그림 2)
+
+위 그림의 왼쪽은 객체, 오른쪽은 데이터베이스 테이블이다. <br>
+객체는 상속이라는 기능을 가지고 있지만 데이터베이스는 상속과는 약간 다른 슈퍼타입과 서브타입의 관계를 사용한다.
+
+JDBC API를 사용하여 코드를 완성하려면 부모 객체에서 부모 테이터만 꺼내서 ITEM용 INSERT SQL을 작성하고 자식 객체에서 자식 데이터만 ALBUM용 INSERT SQL을 작성해야한다. SQL을 작성하는 부분은 코드량이 만만치 않고 자식의 타입에 따라서 DTYPE도 저장을 해야한다.
+
+조회하는 부분도 ITEM과 ALBUM테이블을 조인해서 그 결과를 ALBUM 객체를 생성해야 한다.<br>
+이러한 과정은 모두 패러다임 불일치를 해결하려고 소모하는 비용이 된다.<br>
+
+
+**JAP와 상속**
+
+JPA는 상속과 관련된 패러다임 불일치 문제를 개발자를 대신해서 해결해준다.<br>
+개발자는 자바 컬렉션에 데이터를 저장하듯이 JPA를 통해 객체를 저장만 하면된다.<br>
+
+`jpa.persist(album)`<br>
+
+jpa는 위와 같이 persist()메소드를 통해서 album객체를 저장하면 jpa는 ITEM과 ALBUM 테이블에 대한 INSERT SQL을 생성하여 실행한다.
+
+조회 또한 jpa는 `Album album = jpa.find(Album.class, "id100");`<br>
+find()메소드를 통해서 `SELECT I.*, A.* FROM ITEM I JOIN ALBUM A ON I.ITEM_ID = A.ITEM_ID` join 쿼리를 생성하여 데이터를 조회하고 객체를 반환받는다.<br>
+
+
+상속 이외에도 객체를 테이블에 맞춰 모델링, 객체 그래프 탐색, 동일성 비교 등의 문제점들을 jpa는 해결을 해준다.
+
+
+
+# JPA 소개
+JPA(Java Persistence Api)는 자바 진영의 ORM(Object-Relational Mapping)기술 표준이다.<br>
+
+ORM은 이름 그대로 객체와 관계형 데이터베이스를 매핑한다는 뜻이다.
+ORM 프레임워크는 객체와 테이블을 매핑해서 패러다임 불일치 문제를 대신 해결해준다.
+
+**JPA 동작**<br>
+
+![](https://github.com/edw216/edw216.github.io/blob/master/assets/images/jpa/jpa_img3.png?raw=true)
+
+
+JPA는 위 그림과 같이 애플리케이션과 JDBC 사이에서 동작한다.
+
+
+![](https://github.com/edw216/edw216.github.io/blob/master/assets/images/jpa/jpa_img4.png?raw=true)
+
+JPA 저장 
+
+
+![](https://github.com/edw216/edw216.github.io/blob/master/assets/images/jpa/jpa_img5.png?raw=true)
+
+JPA 조회 
+
+
 
